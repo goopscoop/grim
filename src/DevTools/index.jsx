@@ -15,9 +15,9 @@ const DevTools = () => {
   return <div style={{
     position: 'absolute',
     top: 0,
-    height: 30,
+    height: 20,
     width: '100%',
-    backgroundColor: 'white',
+    backgroundColor: '#FFDB55',
     zIndex: 10001
   }}>
     {isDesktop && 'Desktop mode '}

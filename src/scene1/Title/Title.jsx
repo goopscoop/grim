@@ -12,7 +12,8 @@ const Title = () => {
   const handleOnClick = () => {
 
   };
-
+  // TODO: make images smaller so I'm not hovering without actually hovering
+  // ??? Can a png not be square? ie fit the image perfectly?
   return <motion.img
     src={title}
     variants={variants}

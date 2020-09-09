@@ -14,11 +14,13 @@ const VeilSign = () => {
       <motion.img
         variants={variants}
         initial={`${prefix}Initial`}
+        animate={`${prefix}Initial`}
         src={veilSign}
      />
       <motion.img
         variants={variants}
         initial={`${prefix}Initial`}
+        animate={`${prefix}Initial`}
         src={veilSign}
      />
     </>

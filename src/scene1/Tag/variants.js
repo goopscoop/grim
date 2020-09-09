@@ -1,8 +1,8 @@
 const style = {
   position: 'absolute',
-  left: '22.4vw',
-  bottom: '30vh',
-  zIndex: 100
+  zIndex: 1,
+  left: '40vw',
+  bottom: '4vh'
 };
 
 const variants = {
@@ -10,22 +10,19 @@ const variants = {
     ...style
   },
   desktopInitial: {
-    ...style,
-    scale: 0.9,
-    bottom: '28vh',
-    left: '17vw',
+    ...style
   },
   tabletInitial: {
     ...style,
     scale: 0.7,
-    bottom: '10vh',
-    left: '13vw',
+    left: '30vw',
+    bottom: '-2vh'
   },
   mobileInitial: {
     ...style,
-    scale: 0.5,
-    bottom: '8vh',
-    left: '7vw',
+    scale: 0.4,
+    left: '20vw',
+    bottom: '-11vh'
   },
   portraitInitial: {
     ...style

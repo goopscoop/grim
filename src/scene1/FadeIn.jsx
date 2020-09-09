@@ -5,6 +5,7 @@ const style = {
   position: 'absolute',
   backgroundColor: 'black',
   left: 0,
+  top: 0,
   height: '100%',
   width: '100%',
   zIndex: 1001
@@ -34,7 +35,7 @@ const FadeIn = () => {
       initial='visible'
       animate='hidden'
       variants={variants}
-      transition={{duration: 4}}
+      transition={{duration: 2}}
     />
   )
 };

@@ -5,7 +5,7 @@ import Kult from './Kult';
 import VeilSign from './VeilSign/VeilSign';
 import Title from './Title/Title';
 import BlackBorder from './BlackBorder';
-import Tag from './Tag';
+import Tag from './Tag/Tag';
 import FadeIn from './FadeIn';
 import { useMediaQuery } from 'react-responsive'
 import Background from './Background';
