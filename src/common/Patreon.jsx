@@ -9,6 +9,11 @@ const PatreonBtn = () => {
     marginLeft: '-100px',
     zIndex: 1000
   }
+
+  // TODO:
+  // 1. Make move to catch attention
+  // 2. On Hover, pull up a small modal
+  // 3. Modal should contain images of patreon rewards
   return (
     <div
       style={style}
