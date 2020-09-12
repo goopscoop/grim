@@ -8,7 +8,8 @@ const style = {
   zIndex: 1,
   left: 0,
   top: 0,
-  height: '100%',
+  opacity: 0.8,
+  height: '100vh',
   width: '100%',
 };
 

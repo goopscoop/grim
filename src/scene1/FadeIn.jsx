@@ -6,7 +6,7 @@ const style = {
   backgroundColor: 'black',
   left: 0,
   top: 0,
-  height: '100%',
+  maxHeight: '100vh',
   width: '100%',
   zIndex: 1001
 }

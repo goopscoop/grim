@@ -4,7 +4,7 @@ import patreon from './patreon.png'
 const PatreonBtn = () => {
   const style = {
     position: 'absolute',
-    bottom: 0,
+    top: 0,
     left: '50%',
     marginLeft: '-100px',
     zIndex: 1000

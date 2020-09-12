@@ -4,7 +4,8 @@ import { motion, useCycle } from "framer-motion";
 import { useDimensions } from "./use-dimensions";
 import { MenuToggle } from "./MenuToggle";
 import { Navigation } from "./Navigation";
-import './styles.modules.scss';
+import Terminal from './Terminal/Terminal';
+import {menuGradiant, nav} from './menu.module.scss';
 
 const sidebar = {
   open: (height = 1000) => ({
@@ -33,12 +34,15 @@ const Menu = () => {
 
   return (
     <motion.nav
+      className={nav}
       initial={false}
       animate={isOpen ? "open" : "closed"}
       custom={height}
       ref={containerRef}
     >
-      <motion.div className="background" variants={sidebar} />
+      <motion.div className={menuGradiant} variants={sidebar}>
+        <Terminal />
+      </motion.div>
       <Navigation />
       <MenuToggle toggle={() => toggleOpen()} />
     </motion.nav>

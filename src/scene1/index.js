@@ -1,6 +1,5 @@
 import React from 'react';
 import {RightBorder, LeftBorder} from './Border'
-import styles from './index.modules.scss';
 import Kult from './Kult';
 import VeilSign from './VeilSign/VeilSign';
 import Title from './Title/Title';
@@ -22,7 +21,6 @@ const Scene1 = () => {
     <>
       <FadeIn/>
       <Title />
-      <BlackBorder />
       <VeilSign />
       <Tag />
       <LeftBorder />

@@ -4,7 +4,7 @@ const style = {
   position: 'absolute',
   backgroundColor: 'black',
   left: 0,
-  height: '100%',
+  maxHeight: '100%',
   width: '100%',
   zIndex: 1001
 }
