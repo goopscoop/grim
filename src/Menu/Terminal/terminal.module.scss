@@ -1,7 +1,8 @@
+$black: #292D34;
 
 .container {
   position: absolute;
-  background-color: white;
+  background-color: $black;
   color: white;
   top: 12vh;
   padding: 6vh 2vw;
@@ -23,7 +24,7 @@
   position: absolute;
   left: -2px;
   text-shadow: -5px 0 magenta;
-  background: #292D34;
+  background: $black;
   overflow: hidden;
   top: 0;
   animation: noise-1 7s linear infinite alternate-reverse, glitch 10s 5.05s infinite;
@@ -34,7 +35,7 @@
   position: absolute;
   left: 2px;
   text-shadow: -5px 0 lightgreen;
-  background: #292D34;
+  background: $black;
   overflow: hidden;
   top: 0;
   animation: noise-2 5s linear infinite alternate-reverse, glitch 5s 5s infinite;
