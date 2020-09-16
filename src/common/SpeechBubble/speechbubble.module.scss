@@ -9,7 +9,6 @@ $white: #DEFDF7;
 
 $gutter: 20px;
 $caret-unit: 25px;
-$bubble-bg: $white;
 
 
 /// Opposite Direction
@@ -44,12 +43,10 @@ $bubble-bg: $white;
   @return $opposite-directions;
 }
 
-
 /// Unit Removal
 @function strip-unit($num) {
     @return $num / ($num * 0 + 1);
 }
-
 
 /// Triangle Mixin
 /// ==========================================================
@@ -70,19 +67,18 @@ $bubble-bg: $white;
 .speechBubble {
   filter: drop-shadow(-1px -1px 2px rgba(black, .10)) drop-shadow(1px 2px 2px rgba(black, .15));
   position: absolute;
-	top: 25vh;
-	left: 30vw;
 	margin: 0;
-  padding: 1rem 2rem;
+  padding: 20px;
 	font-family: 'East Sea Dokdo', cursive;
   font-size: 2rem;
   font-weight: 400;
-  background: $bubble-bg;
+  background: $white;
 	color: $black;
-	z-index: 10001;
+  z-index: 10001;
+  box-shadow: 5px 5px 6px;
 
   &::before {
-    @include caret(bottom, ($caret-unit / 2), $bubble-bg);
+    @include caret(bottom, ($caret-unit / 2), $white);
     border-top-width: $caret-unit;
     content: '';
     display: block;
@@ -94,3 +90,12 @@ $bubble-bg: $white;
   }
 }
 
+.clickText {
+  font-size: 14px;
+  color: gray;
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+}

@@ -8,6 +8,7 @@ import PatreonBtn from './common/Patreon';
 import SpeechBubble from './common/SpeechBubble/SpeechBubble';
 
 import {app, blackBg} from './App.module.scss';
+import { SpeechProvider } from './common/SpeechBubble/SpeechContext';
 
 // TODO: 
 // 1. Build full support for portait mode
@@ -17,12 +18,14 @@ import {app, blackBg} from './App.module.scss';
 function App() {
   return (
     <DeviceProvider>
-      <div className={app}>
-        <Menu />
-        <SpeechBubble text='Testing testing 123' />
-        <Scene1 />
-        <PatreonBtn />
-      </div>
+      <SpeechProvider>
+        <div className={app}>
+          <DevTools />
+          <Menu />
+          <SpeechBubble text='Testing testing 123' />
+          <Scene1 />
+        </div>
+      </SpeechProvider>
     </DeviceProvider>
   );
 }

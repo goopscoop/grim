@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {RightBorder, LeftBorder} from './Border'
 import Kult from './Kult';
 import VeilSign from './VeilSign/VeilSign';
@@ -8,21 +8,24 @@ import Tag from './Tag/Tag';
 import FadeIn from './FadeIn';
 import { useMediaQuery } from 'react-responsive'
 import Background from './Background';
+import { useSpeech } from '../common/SpeechBubble/SpeechContext';
 
 const Scene1 = () => {
-  const isDesktopOrLaptop = useMediaQuery({ minDeviceWidth: 1224 })
-  const isBigScreen = useMediaQuery({ minDeviceWidth: 1824 })
-  const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 })
-  const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 })
-  const isPortrait = useMediaQuery({ orientation: 'portrait' })
-  const isRetina = useMediaQuery({ minResolution: '2dppx' })
+  const {
+    beginConversation
+  } = useSpeech();
+
+  useEffect(() => {
+    setTimeout(() => {
+      beginConversation(['This is working programatically'])
+    }, 1000)
+  }, []);
 
   return (
     <>
       <FadeIn/>
       <Title />
       <VeilSign />
-      <Tag />
       <LeftBorder />
       <RightBorder />
       <Background />
