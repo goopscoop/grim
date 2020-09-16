@@ -6,7 +6,12 @@ const hidden = {
 
 const animateIn = {
   scale: [0, 1, 1.2, 1],
-  opacity: [0,1]
+  opacity: [0,null,null,1]
+}
+
+const animateOut = {
+  scale: [1, 0.8, null, 0],
+  opacity: [1,null,null,0]
 }
 
 const common = {
@@ -17,7 +22,8 @@ const common = {
 const variants = {
   exit: {
     ...hidden,
-    duration: 1
+    ...animateOut,
+    duration: 0.7
   },
   initial: {
     ...hidden

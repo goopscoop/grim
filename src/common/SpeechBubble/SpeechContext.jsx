@@ -10,8 +10,11 @@ const getSpeechContext = () => {
   return speechContext;
 };
 
-const SPEECH_BUBBLE_TIMEOUT = 4000;
-const DELAY_BETWEEN_SPEECH_BUBBLES = 2000;
+// TIMING
+const SPEECH_BUBBLE_TIMEOUT = 3300;
+const DELAY_BETWEEN_SPEECH_BUBBLES = 1500;
+
+// REDUCER TYPES
 const RECEIVE_QUEUE = 'RECEIVE_QUEUE';
 const SHIFT_QUEUE = 'SHIFT_QUEUE';
 const SHOW_MESSAGE = 'SHOW_MESSAGE';
@@ -52,9 +55,8 @@ export const SpeechProvider = ({children}) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const SpeechContext = getSpeechContext();
 
-  const showMessage = () => {
-    dispatch({type: SHOW_MESSAGE});
-  };
+  const showMessage = () => dispatch({type: SHOW_MESSAGE});
+  const hideMessage = () => dispatch({type: HIDE_MESSAGE});
 
   useEffect(() => {
     if (state.queue.length) {
@@ -90,6 +92,7 @@ export const SpeechProvider = ({children}) => {
         return <SpeechContext.Provider value={{
           beginConversation,
           showMessage,
+          hideMessage,
           currentSpeech: state.queue[0],
           show: state.show
         }}>

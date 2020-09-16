@@ -12,7 +12,7 @@ const textProps = {
   variants: {
     show: {
       opacity: 1,
-      duration: 1
+      duration: 1.3
     },
     hide: {
       opacity: 0,
@@ -31,18 +31,17 @@ const SpeechBubble = () => {
   const {
     show,
     currentSpeech,
-    setShow
+    hideMessage
   } = useSpeech();
 
-
   const handleClick = () => {
-    setShow(false)
-  }
-  console.log(show)
+    hideMessage();
+  };
+
   return (
     <AnimatePresence>
       {
-        !!show && (
+        show && (
         <motion.blockquote
           className={speechBubble}
           variants={variants}
