@@ -19,7 +19,7 @@ const PatreonBtn = () => {
       style={style}
     >
       <a href="https://www.patreon.com/bePatron?u=2582162">
-        <img style={{width: 200}} src={patreon} />
+        <img alt="Support S.C. Barrus and this project on Patreon. Get tshirts, signed books, and more." style={{width: 200}} src={patreon} />
       </a>
     </div>
   )

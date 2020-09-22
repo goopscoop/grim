@@ -1,5 +1,8 @@
 const hidden = {
   width: 0,
+  height: 0,
+  maxHeight: 0,
+  opacity: 0,
   top: '11vh',
   left: '33vw'
 };

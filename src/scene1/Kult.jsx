@@ -7,6 +7,10 @@ const style = {
   bottom: 0
 }
 
-const Kult = () => <img src={kult} style={style} />
+const Kult = () => <img
+  alt="Kult. The protagonist of Grim Curio. He's studying veil sign which floats omonously before him. Click to learn more."
+  src={kult}
+  style={style}
+/>
 
 export default Kult;

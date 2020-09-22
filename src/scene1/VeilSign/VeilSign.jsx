@@ -10,13 +10,18 @@ const VeilSign = () => {
   const {beginConversation} = useSpeech();
 
   const handleOnHover = () => {
-    beginConversation(['Veil sign...', '...something from another reality saying hello.', 'I knew it existed.'])
+    beginConversation(['Veil sign...'])
   };
+
+  const onClick = () => {
+    beginConversation(['...something from another reality saying hello.', 'I knew it existed.']);
+  }
 
   return (
     <>
       <motion.div
         onHoverStart={handleOnHover}
+        onClick={onClick}
       >
         <motion.img
           variants={variants}

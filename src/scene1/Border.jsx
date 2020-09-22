@@ -1,6 +1,5 @@
 import React from 'react';
 import border from './media/border.png';
-import { useMediaQuery } from 'react-responsive'
 
 const RightBorder = () => {
   const rbstyle = {
@@ -13,7 +12,7 @@ const RightBorder = () => {
     transform: 'scaleX(-1)'
   };
   
-  return <img style={rbstyle} src={border} />
+  return <img style={rbstyle} src={border} alt="Right border"/>;
 };
 const LeftBorder = () => {
   const lbstyle = {
@@ -24,7 +23,7 @@ const LeftBorder = () => {
     height: '100%'
   };
 
-  return <img style={lbstyle} src={border} />
+  return <img style={lbstyle} src={border} alt="Left border" />;
 };
 
 export {

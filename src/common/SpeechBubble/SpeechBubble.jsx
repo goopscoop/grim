@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {motion, AnimatePresence} from 'framer-motion';
 import {speechBubble, clickText} from './speechbubble.module.scss';
 import { useDevice } from '../../Queries/DeviceContext';

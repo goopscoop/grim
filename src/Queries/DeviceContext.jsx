@@ -43,7 +43,7 @@ export const DeviceProvider = ({children}) => {
     } else if (isMobile && prefix !== Prefix.MOBILE) {
       setPrefix(Prefix.MOBILE);
     }
-  })
+  }, [setPrefix]);
 
   return (
     <DeviceContext.Consumer>
