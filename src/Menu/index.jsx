@@ -5,7 +5,7 @@ import { MenuToggle } from "./MenuToggle";
 import { Navigation } from "./Navigation";
 import Terminal from './Terminal/Terminal';
 import {menuGradiant, nav} from './menu.module.scss';
-import { useSpeech } from "../common/SpeechBubble/SpeechContext";
+import { useSpeech } from "../common/speech/SpeechContext";
 
 const sidebar = {
   open: (height = 1000) => ({
@@ -45,7 +45,9 @@ const Menu = () => {
 
     switch (timesOpen) {
       case 0:
-        beginConversation(['Hey, Allie.', 'I just need to figure some things out'], ['Hello Kult, what can I *chrt* do for you?']);
+        beginConversation(
+          ['Hey, Allie.', 'Yeah? Anything on layered universe theory?', 'Shit. I\'ll need to break through again when I have the chance.'],
+          ['Hello Kult, what can I *chrt* do for you?', 'I have several topics\'s loaded into my databanks.', 'There\'s a firewall blocking the undercity network.']);
         break;
       case 1:
         beginConversation(['Yeah, I\'m back', 'I have this weird feeling that I\'m missing something']);

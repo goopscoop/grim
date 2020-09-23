@@ -1,10 +1,11 @@
 const hidden = {
-  width: 0,
-  height: 0,
-  maxHeight: 0,
+  minWidth: '100',
+  minHight: '100',
+  maxWidth: '100',
+  maxHeight: '100',
   opacity: 0,
   top: '11vh',
-  left: '33vw'
+  left: '33vw',
 };
 
 const animateIn = {
@@ -18,8 +19,8 @@ const animateOut = {
 }
 
 const common = {
-  width: 'auto',
-  height: 'auto'
+  // width: 'auto',
+  // height: 'auto'
 };
 
 const variants = {
@@ -37,11 +38,10 @@ const variants = {
   bigScreenAnimate: {
     top: '10vh',
     left: '30vw',
-    maxHeight: 300,
-    minWidth: 250,
-    minHight: 150,
-    maxWidth: 400,
-    padding: '1rem 2rem',
+    maxHeight: '300',
+    minWidth: '350',
+    minHight: '150',
+    maxWidth: '400',
     ...common,
     ...animateIn
   },

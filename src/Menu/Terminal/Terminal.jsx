@@ -2,7 +2,7 @@ import React from 'react';
 import {motion} from 'framer-motion';
 import {container, glitch, glow, scanlines} from './terminal.module.scss';
 import {computerwriting} from '../../App.module.scss'
-import { useSpeech } from '../../common/SpeechBubble/SpeechContext';
+import { useSpeech } from '../../common/speech/SpeechContext';
 import { useDevice } from '../../Queries/DeviceContext';
 
 const WelcomeMessage = () => {

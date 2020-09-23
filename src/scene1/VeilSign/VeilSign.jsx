@@ -3,7 +3,7 @@ import {motion} from 'framer-motion';
 import variants from './variants';
 import veilSign from './../media/veil-sign.png';
 import { useDevice } from '../../Queries/DeviceContext';
-import { useSpeech } from '../../common/SpeechBubble/SpeechContext';
+import { useSpeech } from '../../common/speech/SpeechContext';
 
 const VeilSign = () => {
   const {prefix} = useDevice();

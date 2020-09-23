@@ -10,8 +10,8 @@ const getSpeechContext = () => {
 };
 
 // TIMING
-const SPEECH_BUBBLE_TIMEOUT = 3300;
-const DELAY_BETWEEN_SPEECH_BUBBLES = 1500;
+const SPEECH_BUBBLE_TIMEOUT = 4000;
+const DELAY_BETWEEN_SPEECH_BUBBLES = 1900;
 
 // REDUCER TYPES
 const RESET = 'RESET';
@@ -19,9 +19,11 @@ const RECEIVE_QUEUE = 'RECEIVE_QUEUE';
 const SHIFT_QUEUE = 'SHIFT_QUEUE';
 const SHOW_MESSAGE = 'SHOW_MESSAGE';
 const HIDE_MESSAGE = 'HIDE_MESSAGE';
+const SHIFT_ALLIE_QUEUE = 'SHIFT_ALLIE_QUEUE';
+
 const initialState = {
   queue: [],
-  allieQueue: [],
+  allieQueue: ['What can I do for you, Kult?'],
   show: false
 };
 
@@ -34,9 +36,22 @@ const reducer = (state, action) => {
         allieQueue: action.allieQueue || state.allieQueue
       };
     case SHIFT_QUEUE:
+      const {
+        queue
+      } = state;
+
       return {
         ...state,
-        queue: state.queue.slice(1)
+        queue: queue.slice(1)
+      };
+    case SHIFT_ALLIE_QUEUE:
+      const {
+        allieQueue
+      } = state;
+
+      return {
+        ...state,
+        allieQueue: allieQueue.length > 1 ? allieQueue.slice(1) : initialState.allieQueue
       };
     case RESET:
       return initialState;
@@ -69,7 +84,8 @@ export const SpeechProvider = ({children}) => {
       let delayTimeout;
       const messageTimeout = setTimeout(() => {
         dispatch({type: HIDE_MESSAGE});
-        
+        dispatch({type: SHIFT_ALLIE_QUEUE})
+
         delayTimeout = setTimeout(() => {
           dispatch({type: SHIFT_QUEUE});
         }, DELAY_BETWEEN_SPEECH_BUBBLES);
@@ -82,6 +98,7 @@ export const SpeechProvider = ({children}) => {
     }
 
   }, [state.queue]);
+
 
   const beginConversation = (speechArr, allieArr) => {
     
