@@ -1,8 +1,8 @@
 const hidden = {
-  minWidth: '100',
-  minHight: '100',
-  maxWidth: '100',
-  maxHeight: '100',
+  minWidth: 100,
+  minHight: 100,
+  maxWidth: 100,
+  maxHeight: 100,
   opacity: 0,
   top: '11vh',
   left: '33vw',
@@ -38,10 +38,10 @@ const variants = {
   bigScreenAnimate: {
     top: '10vh',
     left: '30vw',
-    maxHeight: '300',
-    minWidth: '350',
-    minHight: '150',
-    maxWidth: '400',
+    minHight: 150,
+    maxHeight: 300,
+    minWidth: 200,
+    maxWidth: 300,
     ...common,
     ...animateIn
   },

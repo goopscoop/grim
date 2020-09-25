@@ -45,18 +45,10 @@ const Menu = () => {
 
     switch (timesOpen) {
       case 0:
-        beginConversation(
-          ['Hey, Allie.', 'Yeah? Anything on layered universe theory?', 'Shit. I\'ll need to break through again when I have the chance.'],
-          ['Hello Kult, what can I *chrt* do for you?', 'I have several topics\'s loaded into my databanks.', 'There\'s a firewall blocking the undercity network.']);
+        beginConversation('terminal1');
         break;
       case 1:
-        beginConversation(['Yeah, I\'m back', 'I have this weird feeling that I\'m missing something']);
-        break;
-      case 2:
-        beginConversation(['Hey, Allie. Do you have anything in your database about Layered Universe Theory?', 'Wishful thinking, I guess.', 'I just need to find that one thing, that killer data...', '...maybe then the university will pay attention.']);       
-        break;
-      case 3:
-        beginConversation(['How much do I owe Bernie again?', 'Shit.']);
+        beginConversation('terminal2');
         break;
       default:
         return;

@@ -2,7 +2,8 @@ const style = {
   position: 'absolute',
   left: '22.4vw',
   bottom: '30vh',
-  zIndex: 100
+  zIndex: 100,
+  cursor: 'pointer'
 };
 
 const variants = {
@@ -29,6 +30,9 @@ const variants = {
   },
   portraitInitial: {
     ...style
+  },
+  hover: {
+    scale: 1.2
   }
 };
 

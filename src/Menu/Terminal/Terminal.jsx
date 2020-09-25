@@ -1,5 +1,5 @@
 import React from 'react';
-import {motion} from 'framer-motion';
+import {motion,AnimatePresence} from 'framer-motion';
 import {container, glitch, glow, scanlines} from './terminal.module.scss';
 import {computerwriting} from '../../App.module.scss'
 import { useSpeech } from '../../common/speech/SpeechContext';
@@ -12,8 +12,28 @@ const WelcomeMessage = () => {
   return (
     <>
       <motion.div className={`${container} ${prefix}TerminalSize`}>
-        <div className={`${glitch} ${computerwriting}`} data-text={allieSpeech}>{allieSpeech}</div>
-        <div className={`${glow} ${computerwriting}`}>{allieSpeech}</div>
+        <AnimatePresence>
+          {
+            allieSpeech && (
+              // This needs to animate in/out
+              <motion.div
+                exit={{
+                  opacity: 0
+                }}
+              >
+                <div
+                  className={`${glitch} ${computerwriting}`}
+                  data-text={allieSpeech}
+                  >
+                  {allieSpeech}
+                </div>
+                <div className={`${glow} ${computerwriting}`}>
+                  {allieSpeech}
+                </div>
+              </motion.div>
+            )
+          }
+        </AnimatePresence>
       </motion.div>
       <div className={scanlines}></div>
     </>

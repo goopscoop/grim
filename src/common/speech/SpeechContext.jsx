@@ -1,5 +1,5 @@
-import React, {createContext, useReducer} from 'react';
-import { useEffect } from 'react';
+import React, {createContext, useReducer, useEffect} from 'react';
+import getSpeechStrings, {getAllieDefaultText} from './en.js';
 
 let speechContext;
 const getSpeechContext = () => {
@@ -11,47 +11,47 @@ const getSpeechContext = () => {
 
 // TIMING
 const SPEECH_BUBBLE_TIMEOUT = 4000;
-const DELAY_BETWEEN_SPEECH_BUBBLES = 1900;
+const DELAY_BETWEEN_SPEECH_BUBBLES_WITH_ALLIE = 1900;
+const DELAY_BETWEEN_SPEECH_BUBBLES_SOLO = 500;
 
 // REDUCER TYPES
 const RESET = 'RESET';
-const RECEIVE_QUEUE = 'RECEIVE_QUEUE';
-const SHIFT_QUEUE = 'SHIFT_QUEUE';
+const RECEIVE_CONVERSATION = 'RECEIVE_CONVERSATION';
+const SHIFT_KULT_QUEUE = 'SHIFT_KULT_QUEUE';
 const SHOW_MESSAGE = 'SHOW_MESSAGE';
 const HIDE_MESSAGE = 'HIDE_MESSAGE';
 const SHIFT_ALLIE_QUEUE = 'SHIFT_ALLIE_QUEUE';
 
 const initialState = {
-  queue: [],
-  allieQueue: ['What can I do for you, Kult?'],
+  ...getSpeechStrings('default'),
   show: false
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case RECEIVE_QUEUE:
+    case RECEIVE_CONVERSATION: {
+      const {kult, allie} = getSpeechStrings(action.key);
       return {
         ...state,
-        queue: action.queue,
-        allieQueue: action.allieQueue || state.allieQueue
+        kult,
+        allie: allie || state.allie
       };
-    case SHIFT_QUEUE:
+    }
+    case SHIFT_KULT_QUEUE:
       const {
-        queue
+        kult
       } = state;
-
       return {
         ...state,
-        queue: queue.slice(1)
+        kult: kult.slice(1)
       };
     case SHIFT_ALLIE_QUEUE:
       const {
-        allieQueue
+        allie
       } = state;
-
       return {
         ...state,
-        allieQueue: allieQueue.length > 1 ? allieQueue.slice(1) : initialState.allieQueue
+        allie: allie.length > 1 ? allie.slice(1) : initialState.allie
       };
     case RESET:
       return initialState;
@@ -76,19 +76,25 @@ export const SpeechProvider = ({children}) => {
 
   const showMessage = () => dispatch({type: SHOW_MESSAGE});
   const hideMessage = () => dispatch({type: HIDE_MESSAGE});
+  const getDelay = (allyState) => {
+    console.log(allyState[0], getAllieDefaultText())
+    const isConversation = allyState[0] !== getAllieDefaultText();
+    console.log(isConversation)
+    return isConversation ? DELAY_BETWEEN_SPEECH_BUBBLES_WITH_ALLIE : DELAY_BETWEEN_SPEECH_BUBBLES_SOLO;
+  }
 
   useEffect(() => {
-    if (state.queue.length) {
+    if (state.kult.length) {
       showMessage();
 
       let delayTimeout;
       const messageTimeout = setTimeout(() => {
         dispatch({type: HIDE_MESSAGE});
         dispatch({type: SHIFT_ALLIE_QUEUE})
-
+        console.log(getDelay(state.allie))
         delayTimeout = setTimeout(() => {
-          dispatch({type: SHIFT_QUEUE});
-        }, DELAY_BETWEEN_SPEECH_BUBBLES);
+          dispatch({type: SHIFT_KULT_QUEUE});
+        }, getDelay(state.allie));
       }, SPEECH_BUBBLE_TIMEOUT);
 
       return () => {
@@ -97,29 +103,27 @@ export const SpeechProvider = ({children}) => {
       }
     }
 
-  }, [state.queue]);
+  }, [state.kult]);
 
 
-  const beginConversation = (speechArr, allieArr) => {
+  const beginConversation = (key) => {
     
     // Buffer conversation so it's not jarring
-    if (state.queue.length) {
+    if (state.kult.length) {
       dispatch({type: RESET});
 
       setTimeout(() => {
         dispatch({
-          type: RECEIVE_QUEUE,
-          queue: speechArr,
-          allieQueue: allieArr
+          type: RECEIVE_CONVERSATION,
+          key
         });
       }, 200);
       return;
     }
 
     dispatch({
-      type: RECEIVE_QUEUE,
-      queue: speechArr,
-      allieQueue: allieArr
+      type: RECEIVE_CONVERSATION,
+      key
     });
   };
 
@@ -130,8 +134,8 @@ export const SpeechProvider = ({children}) => {
           beginConversation,
           showMessage,
           hideMessage,
-          allieSpeech: state.allieQueue[0],
-          currentSpeech: state.queue[0],
+          allieSpeech: state.allie[0],
+          currentSpeech: state.kult[0],
           show: state.show
         }}>
           {children}
