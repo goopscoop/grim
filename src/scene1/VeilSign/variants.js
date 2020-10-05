@@ -1,3 +1,5 @@
+import {defaultAnimationVariants} from '../../common/utils';
+
 const style = {
   position: 'absolute',
   left: '22.4vw',
@@ -31,9 +33,7 @@ const variants = {
   portraitInitial: {
     ...style
   },
-  hover: {
-    scale: 1.2
-  }
+  ...defaultAnimationVariants()
 };
 
 export default variants;

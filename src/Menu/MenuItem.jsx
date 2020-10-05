@@ -21,7 +21,11 @@ const variants = {
   }
 };
 
-export const MenuItem = ({children}) => {
+export const MenuItem = ({
+  children,
+  onHoverStart,
+  onClick
+}) => {
   const style = {
     fontSize: '3em'
   };
@@ -31,6 +35,8 @@ export const MenuItem = ({children}) => {
       variants={variants}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
+      onHoverStart={onHoverStart}
+      onClick={onClick}
     >
       <div className={`${menuItem} ${handwriting}`} style={style}>
         {'> ' + children}

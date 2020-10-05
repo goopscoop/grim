@@ -29,6 +29,7 @@ const VeilSign = () => {
           variants={variants}
           initial={`${prefix}Initial`}
           animate={`${prefix}Initial`}
+          whileTap={'tap'}
           src={veilSign}
         />
       </motion.div>

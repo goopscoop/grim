@@ -77,9 +77,7 @@ export const SpeechProvider = ({children}) => {
   const showMessage = () => dispatch({type: SHOW_MESSAGE});
   const hideMessage = () => dispatch({type: HIDE_MESSAGE});
   const getDelay = (allyState) => {
-    console.log(allyState[0], getAllieDefaultText())
     const isConversation = allyState[0] !== getAllieDefaultText();
-    console.log(isConversation)
     return isConversation ? DELAY_BETWEEN_SPEECH_BUBBLES_WITH_ALLIE : DELAY_BETWEEN_SPEECH_BUBBLES_SOLO;
   }
 
