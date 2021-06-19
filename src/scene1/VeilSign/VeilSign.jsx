@@ -4,6 +4,7 @@ import variants from './variants';
 import veilSign from './../media/veil-sign.png';
 import { useDevice } from '../../Queries/DeviceContext';
 import { useSpeech } from '../../common/speech/SpeechContext';
+import {circle, svg} from './veilSign.module.scss'
 
 const VeilSign = () => {
   const {prefix} = useDevice();
@@ -19,7 +20,9 @@ const VeilSign = () => {
 
   return (
     <>
-      <motion.div
+      <div className={circle} />
+     
+      {/* <motion.div
         variants={variants}
         onHoverStart={handleOnHover}
         onClick={onClick}  
@@ -32,7 +35,7 @@ const VeilSign = () => {
           whileTap={'tap'}
           src={veilSign}
         />
-      </motion.div>
+      </motion.div> */}
     </>
   );
 };

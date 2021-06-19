@@ -56,7 +56,7 @@ const speechStrings = {
   fringesHover: {
     kult: [`I should learn everything about the fringes I can before I go there...`]
   },
-  fringesClick: {
+  fringesClick0: {
     kult: ['Anything on the naturalists in Clayton, specifically?', `He must be the expert. What has he written?`],
     allie: [`The fringes consist of the land and settlements outside the city of Refuge.`, `There are several logs written by a Doctor Simon Skelton in the archives.`, `Loading...`]
   }

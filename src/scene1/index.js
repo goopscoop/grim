@@ -10,7 +10,7 @@ const Scene1 = () => {
     <>
       <FadeIn/>
       <Title />
-      <VeilSign />
+      {/* <VeilSign /> */}
       <LeftBorder />
       <RightBorder />
       <Background />

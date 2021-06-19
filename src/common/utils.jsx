@@ -22,11 +22,13 @@ export const useHandleClickProgression = (conversationKey) => {
 
   const handleClickProgression = () => {
     const key = `${conversationKey}${timesClicked}`;
-    console.log(key)
+
     const doesConversationExist = !!getSpeechStrings(key);
 
     if (!doesConversationExist) {
-      return;
+      // if we run out of conversation options
+      // then start back at 0
+      setTimesClicked(0);
     }
 
     beginConversation(key);

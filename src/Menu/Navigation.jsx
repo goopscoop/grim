@@ -24,6 +24,9 @@ export const Navigation = () => {
   const {
     handleClickProgression: nihilistClick
   } = useHandleClickProgression('nihilistClick');
+  const {
+    handleClickProgression: fringesClick
+  } = useHandleClickProgression('fringesClick')
   const {beginConversation} = useSpeech()
   return (
     <motion.ul className={ul} variants={variants}>
@@ -36,12 +39,12 @@ export const Navigation = () => {
         onClick={nihilistClick}
       >Nihilists</MenuItem>
       <MenuItem
-        onHoverStart={() => beginConversation('scbarrusHover')}
+        onHoverStart={() => beginConversation('fringesHover')}
         onClick={scbarrusClick}
       >The Fringes</MenuItem>
       <MenuItem
-        onHoverStart={() => beginConversation('fringesHover')}
-        onClick={scbarrusClick}
+        onHoverStart={() => beginConversation('scbarrusHover')}
+        onClick={fringesClick}
       >S.C. Barrus</MenuItem>
     </motion.ul>
   );
